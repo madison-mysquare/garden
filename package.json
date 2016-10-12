@@ -1,0 +1,30 @@
+{
+  "name": "garden",
+  "version": "1.0.0",
+  "description": "Home-based event manager",
+  "main": "index.html",
+  "scripts": {
+    "test": "test",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logosghost/garden.git"
+  },
+  "author": "James, Deniz, Jear, Ian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/logosghost/garden/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "homepage": "https://github.com/logosghost/garden#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "mocha": "^3.1.2"
+  }
+}
