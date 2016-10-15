@@ -1,9 +1,10 @@
 module.exports = {
   context: __dirname + "/app",
-  entry: "./app.js",
+  entry: ["./global.js", "./app.js"],
 
   output: {
-    filename: "app.js",
+    filename: "bundle.js",
     path: __dirname + "/dist",
   },
+  watch: true
 };

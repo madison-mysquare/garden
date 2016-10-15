@@ -42,9 +42,36 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(1);
+	module.exports = __webpack_require__(2);
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
-	console.log("yoyo");
+	console.log("global js is now loaded yo");
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var log = __webpack_require__(3);
+
+
+	document.write('welcome to the garden!');
+
+	console.log('app loaded');
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	console.log('logger is loaded');
 
 
 /***/ }
