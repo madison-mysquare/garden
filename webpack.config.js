@@ -17,12 +17,12 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.es6$/,
+        test: [/\.js$/, /\.es6$/],
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
           cacheDirectory: true,
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015'],
         }
       }
     ]
@@ -31,4 +31,5 @@ module.exports = {
     extensions: ['', '.js', '.es6']
   },
 };
-// allows use of require('./logger') instead of require('./logger.js');
+// "resolve" allows use of require('./logger') instead of require('./logger.js');
+// "test: [/\.js$/, /\.es6$/]"" allows for both .js and .es6 files to be passed to babel, allowing for the use of JSX in the code.

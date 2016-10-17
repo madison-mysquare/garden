@@ -1,6 +1,8 @@
-var log = require('./logger');
+import React from "react";
+import ReactDOM from "react-dom";
+import Hello from "./hello";
 
-
-document.write('welcome to the garden!');
-
-console.log('app loaded');
+ReactDOM.render(
+  <Hello name="world" />,
+  document.body
+);
