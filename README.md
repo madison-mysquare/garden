@@ -2,4 +2,4 @@
 An app to help organically grow and support artists
 
 
-# for production, run: webpack -p
+# for production mode: npm run build

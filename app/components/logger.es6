@@ -1,10 +1,10 @@
 console.log('logger is loaded');
 const checkName = (firstName, lastName) => {
-  if (firstName !== 'nader' || lastName !== 'dabit') {
-    console.log('you are not nader dabit');
+  if (firstName !== 'Jim' || lastName !== 'Kim') {
+    console.log('you are not Jim Kim');
 
   } else {
-    console.log('you are nader dabit');
+    console.log('you are Jim Kim');
   }
 };
-checkName('nader', 'jackson');
+checkName('Jim', 'Lee');
