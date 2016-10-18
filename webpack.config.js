@@ -1,4 +1,3 @@
-const WebpackBrowserPlugin = require('webpack-browser-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -15,7 +14,6 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new WebpackBrowserPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
