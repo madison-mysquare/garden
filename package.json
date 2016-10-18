@@ -7,7 +7,7 @@
     "test": "exit 0",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "webpack-dev-server --output-public-path=/dist/ --inline --hot",
+    "start": "webpack-dev-server --output-public-path=/dist/ --inline",
     "serve": "nodemon server/server.js --ignore components",
     "build": "webpack -p"
   },
@@ -50,6 +50,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
     "redux": "^3.6.0"
   }
 }
