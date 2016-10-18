@@ -1,5 +1,5 @@
 module.exports = {
-  context: __dirname + "/app",
+  context: __dirname + "/app/components",
   entry: ["./global.js", "./app.js"],
 
   output: {
