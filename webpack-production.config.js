@@ -1,5 +1,6 @@
-var WebpackStripLoader = require('strip-loader');
-var devConfig = require('./webpack.config.js');
+const WebpackStripLoader = require('strip-loader');
+const devConfig = require('./webpack.config.js');
+const webpack = require('webpack');
 
 var stripLoader = {
   test: [/\.js$/, /\.es6$/],
