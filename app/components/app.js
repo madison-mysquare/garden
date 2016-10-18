@@ -1,8 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Hello from "./hello";
+import React, { Component } from "react";
 
-ReactDOM.render(
-  <Hello name="WORLD" />,
-  document.getElementById('app')
-);
+class App extends Component {
+  render() {
+    return (
+      <div>Hi, this is my react/redux app component</div>
+    );
+  }
+}
+
+export default App;
