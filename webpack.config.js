@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     "webpack-hot-middleware",
     "webpack/hot/dev-server",
-    "./app/Main.js",
+    "./app/Main.jsx",
   ],
   output: {
     filename: "bundle.js",
@@ -21,14 +21,14 @@ module.exports = {
   module: {
     preloaders: [
       {
-        test: /\.js$/,
+        test: [/\.js$/, /\.jsx$/],
         exclude: /node_modules/,
         loader: 'jshint-loader'
       }
     ],
     loaders: [
       {
-        test: [/\.js$/, /\.es6$/],
+        test: [/\.js$/, /\.jsx$/],
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -39,7 +39,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.es6']
+    extensions: ['', '.js', '.jsx']
   },
   devServer: {
     hot: true
