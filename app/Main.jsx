@@ -5,16 +5,15 @@ import { Provider } from "react-redux";
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import store from "./store";
 
-// const router = (
-//   <Provider store={ store }>
-//     <Router>
-//       <Route path="/" component={ App }>
-//       </Route>
-//     </Router>
-//   </Provider>
-// );
+const app = document.getElementById('app');
+
+const routes = (
+  <Provider store={ store }>
+    <App />
+  </Provider>
+);
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+  routes,
+  app
 );
