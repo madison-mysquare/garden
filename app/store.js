@@ -1,34 +1,32 @@
 import { applyMiddleware, createStore } from "redux";
+import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
+import { browserHistory } from "react-router";
 import axios from "axios";
 import logger from "redux-logger";
-import reducers from "./reducers/reducers";
+import rootReducer from "./reducers/reducers";
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 
-// logger modifies the actions.
-// const logger = (store) => (next) => (action) => {
-//   console.log("action fired");
-//   next(action);
-// };
-// const error = (store) => (next) => (action) => {
-//   try {
-//     next(action);
-//   } catch(e) {
-//     console.log(error);
-//   }
-// };
+const user = {
+  name: "",
+  password: ""
+};
 
-const middleware = applyMiddleware(promise(), thunk, logger());
+const defaultState ={
+  user,
+};
 
-const store = createStore(reducers, middleware);
+const middleware = applyMiddleware(routerMiddleware(browserHistory), promise(), thunk, logger());
+
+const store = createStore(rootReducer, middleware);
 
 store.subscribe(() => {
-  console.log('store changed ', store.getState());
+  console.log('store changed ++> ', store.getState());
 });
 
 // store.dispatch({type: "CHANGE_NAME", payload: "Jim"});
 // store.dispatch({type: "CHANGE_PASSWORD", payload: "JIMBONE"});
-// store.dispatch({type: "CHANGE_PASSWORD", payload: "CHANGED IT"});
+// store.dispatch({type: "CHANGE_PASSWORD", payload: "CHA IT"});
 
 // store.dispatch((dispatch) => {
 //   dispatch({type: "CHANGE_NAME", payload: "jimbot"});
@@ -42,12 +40,5 @@ store.subscribe(() => {
 //     });
 // });
 
-store.dispatch({
-  type: "CHANGE_NAME",
-  payload: "JIMbot"
-});
-
-
-
-
+const history = syncHistoryWithStore(browserHistory, store);
 export default store;

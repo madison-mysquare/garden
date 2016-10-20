@@ -2,11 +2,11 @@ const webpack = require('webpack');
 
 module.exports = {
   devtool: 'inline-source-map',
-  // context: __dirname + "/app",
+  context: __dirname + "/app",
   entry: [
     "webpack-hot-middleware",
     "webpack/hot/dev-server",
-    "./app/Main.jsx",
+    "./main.js",
   ],
   output: {
     filename: "bundle.js",
@@ -42,7 +42,8 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
-    hot: true
+    hot: true,
+    historyApiFallback: true,
   },
 };
 // "resolve" allows use of require('./logger') instead of require('./logger.js');

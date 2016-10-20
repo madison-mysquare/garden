@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export function changeName(name) {
   return {
     type: "CHANGE_NAME",
