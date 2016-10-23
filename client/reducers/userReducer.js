@@ -3,7 +3,7 @@ const initialState ={
   password: ""
 };
 
-const userReducer = (state=initialState, action) => {
+const users = (state=initialState, action) => {
   switch (action.type) {
     case "CHANGE_NAME": {
       state = Object.assign({}, state, {
@@ -21,4 +21,4 @@ const userReducer = (state=initialState, action) => {
   return state;
 };
 
-export default userReducer;
+export default users;
