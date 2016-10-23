@@ -1,14 +1,14 @@
 {
   "name": "garden",
   "description": "Home-based event manager",
-  "main": "app/index.html",
+  "main": "client/index.html",
   "version": "0.0.0-semantically-released",
   "scripts": {
     "test": "exit 0",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "webpack-dev-server --output-public-path=/dist/ --inline",
-    "serve": "nodemon --watch server --exec babel-node -- server/server.js",
+    "serve": "nodemon server/server.js --watch --hot",
     "build": "webpack -p"
   },
   "repository": {
