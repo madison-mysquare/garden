@@ -4,35 +4,39 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../actions/actions";
+import Dashboard from "./Dashboard";
+import Navigation from "./Nav";
 
 // The mapStateToProps function takes a single argument of the entire Redux store’s state and returns an object to be passed as props.
 // It is often called a selector.
 function mapStateToProps(state, ownProps) {
-  console.log("STATE ", state.user);
-  console.log("OWN PROPS ", ownProps);
+  console.log("APP STATE ", state);
   return {
-    user: state.user
+    user: state.users,
+    events: state.events
   };
 }
 // inject all actions as actions.
 function mapDispatchToProps(dispatch) {
-  console.log("DISPATCH ", dispatch);
   return bindActionCreators(actions, dispatch);
 }
 
-class App extends Component {
+class App extends React.Component {
   render() {
-            console.log("THIS.PROPS ", this.props.user.name);
     return (
       <div>
-        <div>Hi, this is my react/redux app component, {this.props.user.name}</div>
-
+        <div>
+          <Navigation />
+          { React.cloneElement(this.props.children, this.props) }
+        </div>
       </div>
     );
   }
 }
 
-// It needs to be invoked two times. The first time with its arguments described above, and a second time, with the component
-App = connect(mapStateToProps, mapDispatchToProps)(App)
+// It needs to be invoked two times. The first time with its arguments described above, and a second time, with the component.
+// In this case, it references itself.
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;
+// React.cloneElement clones this.props FOR this.props.children (i.e. Login component).

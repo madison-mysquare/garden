@@ -2,20 +2,21 @@ const webpack = require('webpack');
 
 module.exports = {
   devtool: 'inline-source-map',
-  // context: __dirname + "/app",
+  context: __dirname + "/client",
   entry: [
     "webpack-hot-middleware",
     "webpack/hot/dev-server",
-    "./app/Main.jsx",
+    "./main.js",
   ],
   output: {
     filename: "bundle.js",
     path: __dirname + "/dist",
+    publicPath: "http://localhost:8080/dist/"
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin()
   ],
   watch: true,
   module: {
@@ -42,7 +43,8 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
-    hot: true
+    hot: true,
+    historyApiFallback: true,
   },
 };
 // "resolve" allows use of require('./logger') instead of require('./logger.js');
