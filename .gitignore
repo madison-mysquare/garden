@@ -1,4 +1,4 @@
-data/db/*
+server/data/db/*
 
 # Logs
 logs
