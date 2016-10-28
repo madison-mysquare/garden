@@ -1,8 +1,14 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 // use connect since we are wrapping compinents in <Provider>
 // connects a React component to Redux store.
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import {
+  connect
+} from "react-redux";
+import {
+  bindActionCreators
+} from "redux";
 import * as actions from "../actions/actions";
 import Dashboard from "./Dashboard";
 import Navigation from "./Nav";
@@ -25,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div id="app">
           <Navigation />
           { React.cloneElement(this.props.children, this.props) }
         </div>
