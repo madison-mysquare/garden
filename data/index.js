@@ -4,22 +4,16 @@ var MongoClient = require('mongodb').MongoClient,
 // Connection URL
 var url = 'mongodb://localhost:27017/garden';
 
-var mongoose = require("mongoose");
-
-mongoose = mongoose.connect('mongodb://localhost:27017/garden');
-
-
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
-  // insertDocuments(db, function() {
-    // indexCollection(db, function() {
+  insertDocuments(db, function() {
+    indexCollection(db, function() {
       db.close();
-    // });
-  // });
+    });
+  });
 });
-
 
 
 var insertDocuments = function(db, callback) {
@@ -109,5 +103,3 @@ var indexCollection = function(db, callback) {
     }
   );
 };
-
-module.exports = mongoose;

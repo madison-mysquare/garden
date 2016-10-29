@@ -16,6 +16,9 @@ class Navigation extends React.Component {
         <div>
           <Link to={`/login`}>Login</Link>
         </div>
+        <div>
+          <Link to={`/create`}>Create Events</Link>
+        </div>
       </nav>
     );
   }
