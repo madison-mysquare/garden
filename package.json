@@ -9,6 +9,8 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "webpack-dev-server --output-public-path=/dist/ --inline",
     "serve": "nodemon server/server.js --watch --hot",
+    "mongodb": "mongod --dbpath=server/data/db",
+    "connectdb": "node server/data/index.js",
     "build": "webpack -p"
   },
   "repository": {
@@ -53,6 +55,8 @@
     "axios": "^0.15.2",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.5",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
