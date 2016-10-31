@@ -7,9 +7,32 @@ const events = (state=[], action) => {
       );
       break;
     }
+    // case "CREATE_EVENT": {
+    //   state = Object.assign({}, state,
+    //     action.payload
+    //   );
+    //   break;
+    // }
+    case "DELETE_EVENT": {
+      // delete event from store/state if action.payload === true.
+      const eventID = action.data;
+      for (let i in state) {
+        if (state[i].id !== eventID) {
+          Object.assign({}, state, state[i].id);
+        }
+      }
+      break;
+    }
     case "FETCH_EVENTS_REJECTED": {
       state = Object.assign({}, state, {
-        message: "NO EVENTS"
+        message: "Sorry, no events"
+      });
+      break;
+    }
+    case "DELETE_EVENT_REJECTED": {
+      // send a message;
+      state = Object.assign({}, state, {
+        message: "Sorry, that event either doesn't exist of can't be deleted"
       });
       break;
     }
