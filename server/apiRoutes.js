@@ -8,11 +8,19 @@ module.exports = function apiRoutes(app) {
   });
 
   app.get('/api/get/events', function (req, res) {
-    // Event.createEvent(function() {
-      Event.fetchAllEvents(function(event) {
-        res.send(event);
-      });
-    // });
+    Event.fetchAllEvents(function(event) {
+      res.send(event);
+    });
+  });
+
+  app.post('/api/create/event', function(req, res) {
+    Event.createEvent(req.body.data, function(event) {
+      if (event) {
+        res.send(201);
+      } else {
+        res.send(401);
+      }
+    });
   });
 
   app.post('/api/delete/event', function(req, res) {

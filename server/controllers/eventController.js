@@ -1,22 +1,13 @@
 var Event = require('../models/eventModel');
 // using Mongoose CRUD operations. Not MongoDB.
-const createEvent = () => {
-  Event.create({
-    id: 1,
-    date: '01/25/2017',
-    time: '12:30',
-    title: 'STEM',
-    location: '30-51 Hobart Street',
-    org_name: 'Botics',
-    org_website: 'wwww.botics.com',
-    org_email: 'botics@gmail.com',
-    username: 'jimbot',
-    user_email: 'mrjimbot@gmail.com'
-  }, (err, event) => {
+const createEvent = (eventData, callback) => {
+  Event.create(eventData, (err, event) => {
     if (err) {
-      console.log(err);
+      console.error(err);
+      callback(err);
     } else {
       console.log("EVENT ",event);
+      callback(event);
     }
   });
 };

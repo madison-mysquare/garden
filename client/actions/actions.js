@@ -58,3 +58,23 @@ export function deleteOneEvent(event, callback) {
     });
   };
 }
+
+
+export function createEvent(data, callback) {
+  return dispatch => {
+    axios.post('api/create/event', { data: data })
+    .then((response) => {
+      // store.dispatch({
+      //   type: "CREATE_EVENT",
+      //   payload: { data: data }
+      // });
+      callback(response);
+    })
+    .catch((err) => {
+      dispatch({
+        type: "CREATE_EVENT_REJECTED",
+        payload: err
+      });
+    });
+  };
+}
