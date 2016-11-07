@@ -26,12 +26,12 @@ class CreateEvents extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.createEvent(this.state, () => {
       this.props.fetchAllEvents()
       .then(() => {
-        browserHistory.push("/dashboard");
+        browserHistory.push(`/dashboard`);
       });
-
     });
   }
 

@@ -46,7 +46,7 @@ export function deleteOneEvent(event, callback) {
     .then((response) => {
       store.dispatch({
         type: "DELETE_EVENT",
-        payload: { data: event._id }
+        payload: { data: event.title }
       });
       callback(response.data);
     })
@@ -68,7 +68,8 @@ export function createEvent(data, callback) {
       //   type: "CREATE_EVENT",
       //   payload: { data: data }
       // });
-      callback(response);
+      // callback(response);
+      callback();
     })
     .catch((err) => {
       dispatch({
