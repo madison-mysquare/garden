@@ -16,7 +16,7 @@ module.exports = function apiRoutes(app) {
   app.post('/api/create/event', function(req, res) {
     Event.createEvent(req.body.data, function(event) {
       if (event) {
-        res.send(201);
+        res.redirect('/dashboard');
       } else {
         res.send(401);
       }

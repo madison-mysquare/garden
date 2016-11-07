@@ -20,7 +20,8 @@ class Dashboard extends React.Component {
   }
   deleteEvent(e) {
     e.preventDefault();
-    let deletedEvent = { _id: "58141faa4799ff521b7cb831" };
+    let deletedEvent = { title: e.target.title };
+    console.log("DELETED ", e  );
     this.props.deleteOneEvent(deletedEvent, (deleted) => {
       if (deleted) {
         console.log("making it to refetch!");
@@ -40,7 +41,7 @@ class Dashboard extends React.Component {
       <EventList date={event.date} details={event.details} key={i}
       location={event.location} org_email={event.org_email} org_name={event.org_name}
       org_site={event.org_website} time={event.time} title={event.title} user_email={event.user_email}
-      username={event.username}
+      username={event.username} deleteEvent={this.deleteEvent.bind(this)}
       />
     );
 
@@ -50,7 +51,6 @@ class Dashboard extends React.Component {
         <div>
           {eventList}
         </div>
-        <button onClick={this.deleteEvent}>Delete Event</button>
       </div>
     );
   }

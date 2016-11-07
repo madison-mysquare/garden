@@ -15,10 +15,10 @@ const events = (state=[], action) => {
     // }
     case "DELETE_EVENT": {
       // delete event from store/state if action.payload === true.
-      const eventID = action.data;
+      const eventTitle = action.data;
       for (let i in state) {
-        if (state[i].id !== eventID) {
-          Object.assign({}, state, state[i].id);
+        if (state[i].title !== eventTitle) {
+          Object.assign({}, state, state[i].title);
         }
       }
       break;
