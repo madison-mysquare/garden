@@ -1,21 +1,21 @@
 import React from "react";
 
-const EventList = ({ date, details, location, org_name, org_site, org_email, time, title, user_email, username }) => {
+const EventList = ({ date, location, org_name, org_site, org_email, time, title, user_email, username, deleteEvent }) => {
 
     return (
       <div>
-        <ul>
-          <h3>{title}</h3>
-          <li>{date}</li>
-          <li>{time}</li>
-          <li>{details}</li>
-          <li>{location}</li>
-          <li>{org_name}</li>
-          <li>{org_site}</li>
-          <li>{org_email}</li>
-          <li>{username}</li>
-          <li>{user_email}</li>
-        </ul>
+        <form onSubmit={deleteEvent}>
+          <h3 className="title" ref="title">{title}</h3>
+          <div>{date}</div>
+          <div>{time}</div>
+          <div>{location}</div>
+          <div>{org_name}</div>
+          <div>{org_site}</div>
+          <div>{org_email}</div>
+          <div>{username}</div>
+          <div>{user_email}</div>
+          <button>Delete Event</button>
+        </form>
       </div>
     );
   }
