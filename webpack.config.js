@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -10,8 +11,9 @@ module.exports = {
   ],
   output: {
     filename: "bundle.js",
-    path: __dirname + "/dist",
-    publicPath: "http://localhost:8080/dist/"
+    path: path.resolve(__dirname, "./dist"),
+    // publicPath: "/static/"
+    // publicPath: "http://localhost:8080/dist/"
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

@@ -7,12 +7,12 @@ const events = (state=[], action) => {
       );
       break;
     }
-    // case "CREATE_EVENT": {
-    //   state = Object.assign({}, state,
-    //     action.payload
-    //   );
-    //   break;
-    // }
+    case "CREATE_EVENT": {
+      state = Object.assign({}, state,
+        action.payload
+      );
+      break;
+    }
     case "DELETE_EVENT": {
       // delete event from store/state if action.payload === true.
       const eventTitle = action.data;

@@ -5,15 +5,17 @@ class CreateEvents extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: '',
       date: '',
       time: '',
-      locaton: '',
+      location: '',
       org_name: '',
       org_website: '',
       org_email: '',
       username: '',
       user_email: ''
     };
+    this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
@@ -26,15 +28,16 @@ class CreateEvents extends React.Component {
   }
 
   handleSubmit(e) {
+    browserHistory.push(`/`);
     e.preventDefault();
-    this.props.createEvent(this.state, () => {
-      this.props.fetchAllEvents()
-      .then(() => {
-        browserHistory.push(`/dashboard`);
-      });
-    });
+    this.props.createEvent(this.state);
   }
 
+  handleTitleChange(e) {
+    this.setState({
+      title: e.target.value,
+    });
+  }
   handleDateChange(e) {
     this.setState({
       date: e.target.value,
@@ -81,6 +84,10 @@ class CreateEvents extends React.Component {
       <div>
         <h3>Create Events Here</h3>
         <form onSubmit={this.handleSubmit}>
+          <div>
+            <label>Title </label>
+            <input type="text" onChange={this.handleTitleChange}></input>
+          </div>
           <div>
             <label>Date </label>
             <input type="text" onChange={this.handleDateChange}></input>

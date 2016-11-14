@@ -7,7 +7,7 @@
     "test": "exit 0",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "webpack-dev-server --output-public-path=/dist/ --inline",
+    "start": "webpack-dev-server --output-public-path=/static/ --inline --hot --progress",
     "serve": "nodemon server/server.js --watch --hot",
     "mongodb": "mongod --dbpath=server/data/db",
     "connectdb": "node server/data/index.js",
