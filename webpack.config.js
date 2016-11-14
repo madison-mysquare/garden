@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./dist"),
-    // publicPath: "/static/"
+    // publicPath: "/dist/"
     // publicPath: "http://localhost:8080/dist/"
   },
   plugins: [

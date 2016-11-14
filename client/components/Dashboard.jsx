@@ -18,7 +18,6 @@ class Dashboard extends React.Component {
       });
     });
   }
-
   deleteEvent(title) {
     let deletedEvent = { title: title };
     // console.log("DELETED EVENT ", deletedEvent);
