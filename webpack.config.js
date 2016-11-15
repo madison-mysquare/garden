@@ -1,17 +1,18 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
   context: __dirname + "/client",
   entry: [
     "webpack-hot-middleware",
-    "webpack/hot/dev-server",
+    "webpack/hot/only-dev-server",
     "./main.js",
   ],
   output: {
     filename: "bundle.js",
-    path: __dirname + "/dist",
-    publicPath: "http://localhost:8080/dist/"
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: "/static/",
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -36,6 +37,10 @@ module.exports = {
           cacheDirectory: true,
           presets: ['react-hmre', 'react', 'es2015'],
         }
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
       }
     ]
   },

@@ -1,5 +1,6 @@
 import React from "react";
 import EventList from "./EventList";
+require("../sass/dashboard.scss");
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -8,7 +9,6 @@ class Dashboard extends React.Component {
     this.state = {
       events: [],
     };
-    this.deleteEvent = this.deleteEvent.bind(this);
   }
   componentWillMount() {
     console.log("REACHING FETCH");
@@ -18,12 +18,11 @@ class Dashboard extends React.Component {
       });
     });
   }
-  deleteEvent(e) {
-    e.preventDefault();
-    let deletedEvent = { _id: "58141faa4799ff521b7cb831" };
+  deleteEvent(title) {
+    let deletedEvent = { title: title };
+    // console.log("DELETED EVENT ", deletedEvent);
     this.props.deleteOneEvent(deletedEvent, (deleted) => {
       if (deleted) {
-        console.log("making it to refetch!");
         this.props.fetchAllEvents((events) => {
           this.setState({
             events: events.data
@@ -36,21 +35,12 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    let eventList = this.state.events.map((event, i) =>
-      <EventList date={event.date} details={event.details} key={i}
-      location={event.location} org_email={event.org_email} org_name={event.org_name}
-      org_site={event.org_website} time={event.time} title={event.title} user_email={event.user_email}
-      username={event.username}
-      />
-    );
-
     return (
-      <div className="dash">
-        <h3>DASHBOARD</h3>
+      <div id="dashboard">
+        <h2 className="title">DASHBOARD</h2>
         <div>
-          {eventList}
+          <EventList events={this.state.events} deleteEvent={this.deleteEvent.bind(this)} />
         </div>
-        <button onClick={this.deleteEvent}>Delete Event</button>
       </div>
     );
   }

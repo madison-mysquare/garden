@@ -46,7 +46,7 @@ export function deleteOneEvent(event, callback) {
     .then((response) => {
       store.dispatch({
         type: "DELETE_EVENT",
-        payload: { data: event._id }
+        payload: { data: event.title }
       });
       callback(response.data);
     })
@@ -60,15 +60,14 @@ export function deleteOneEvent(event, callback) {
 }
 
 
-export function createEvent(data, callback) {
+export function createEvent(data) {
   return dispatch => {
     axios.post('api/create/event', { data: data })
     .then((response) => {
-      // store.dispatch({
-      //   type: "CREATE_EVENT",
-      //   payload: { data: data }
-      // });
-      callback(response);
+      store.dispatch({
+        type: "CREATE_EVENT",
+        payload: { data: data }
+      });
     })
     .catch((err) => {
       dispatch({

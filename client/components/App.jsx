@@ -16,7 +16,6 @@ import Navigation from "./Nav";
 // The mapStateToProps function takes a single argument of the entire Redux store’s state and returns an object to be passed as props.
 // It is often called a selector.
 function mapStateToProps(state, ownProps) {
-  console.log("APP STATE ", state);
   return {
     user: state.users,
     events: state.events

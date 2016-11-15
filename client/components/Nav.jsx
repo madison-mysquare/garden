@@ -9,9 +9,9 @@ class Navigation extends React.Component {
   render() {
     return (
       <nav>
-        <h1>Welcome to the building of this app</h1>
+        <h1>Flux/Redux 101</h1>
         <div>
-          <Link to={`/dashboard`}>Dashboard</Link>
+          <Link to={`/`}>Dashboard</Link>
         </div>
         <div>
           <Link to={`/login`}>Login</Link>

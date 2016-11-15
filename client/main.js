@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import EventList from "./components/EventList";
 import CreateEvents from "./components/CreateEvents";
+import EventListEntry from "./components/EventListEntry";
 import { Provider } from "react-redux";
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import store from "./store";
@@ -17,11 +18,11 @@ const router = (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={Dashboard} />
-        {/* <Route path="dashboard" component={Dashboard}></Route> */}
+      <IndexRoute component={Dashboard} />
         <Route path="login" component={Login}></Route>
         <Route path="dashboard" component={Dashboard}></Route>
         <Route path="create" component={CreateEvents}></Route>
+        {/* <Route path="/events" component={EventListEntry}></Route> */}
       </Route>
     </Router>
   </Provider>

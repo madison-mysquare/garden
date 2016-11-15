@@ -7,10 +7,11 @@
     "test": "exit 0",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "webpack-dev-server --output-public-path=/dist/ --inline",
-    "serve": "nodemon server/server.js --watch --hot",
+    "dev": "webpack-dev-server --output-public-path=/static/ --inline --hot --progress",
+    "start": "nodemon server/server.js --watch --hot",
     "mongodb": "mongod --dbpath=server/data/db",
     "connectdb": "node server/data/index.js",
+    "webpack": "webpack --watch --progress --profile --json",
     "build": "webpack -p"
   },
   "repository": {
@@ -41,19 +42,23 @@
     "jshint-loader": "^0.8.3",
     "mocha": "^3.1.2",
     "node-libs-browser": "^1.0.0",
+    "node-sass": "^3.12.1",
     "nodemon": "^1.11.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "redux-logger": "^2.7.0",
+    "sass-loader": "^4.0.2",
     "semantic-release": "^4.3.5",
     "strip-loader": "^0.1.2",
-    "webpack": "^1.13.2",
+    "webpack": "^1.13.3",
     "webpack-browser-plugin": "^1.0.12",
     "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.0"
   },
   "dependencies": {
     "axios": "^0.15.2",
     "body-parser": "^1.15.2",
+    "css-loader": "^0.25.0",
     "express": "^4.14.0",
     "mongodb": "^2.2.11",
     "mongoose": "^4.6.5",
@@ -64,6 +69,7 @@
     "react-router-redux": "^4.0.6",
     "redux": "^3.6.0",
     "redux-promise-middleware": "^4.1.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "style-loader": "^0.13.1"
   }
 }

@@ -1,23 +1,19 @@
 import React from "react";
+import EventListEntry from "./EventListEntry";
 
-const EventList = ({ date, location, org_name, org_site, org_email, time, title, user_email, username }) => {
-
+const EventList = ({ events, deleteEvent }) => {
+  let eventList = events.map((event, i) =>
+    <EventListEntry date={event.date} details={event.details} key={i}
+    location={event.location} org_email={event.org_email} org_name={event.org_name}
+    org_site={event.org_website} time={event.time} title={event.title} user_email={event.user_email}
+    username={event.username} deleteEvent={deleteEvent}
+    />
+  );
     return (
       <div>
-
-          <h3>{title}</h3>
-          <div>{date}</div>
-          <div>{time}</div>
-          <div>{location}</div>
-          <div>{org_name}</div>
-          <div>{org_site}</div>
-          <div>{org_email}</div>
-          <div>{username}</div>
-          <div>{user_email}</div>
-
+        {eventList}
       </div>
     );
   }
-
 
 export default EventList;
