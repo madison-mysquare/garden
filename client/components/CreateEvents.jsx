@@ -86,21 +86,21 @@ class CreateEvents extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Title </label>
-            <input type="text" onChange={this.handleTitleChange}></input>
+            <input type="text" onChange={this.handleTitleChange} required></input>
           </div>
           <div>
             <label>Date </label>
-            <input type="text" onChange={this.handleDateChange}></input>
+            <input type="text" onChange={this.handleDateChange} required></input>
           </div>
 
           <div>
             <label>Time </label>
-            <input type="text" onChange={this.handleTimeChange}></input>
+            <input type="text" onChange={this.handleTimeChange} required></input>
           </div>
 
           <div>
             <label>Location </label>
-            <input type="text" onChange={this.handleLocationChange}></input>
+            <input type="text" onChange={this.handleLocationChange} required></input>
           </div>
 
           <div>
@@ -120,12 +120,12 @@ class CreateEvents extends React.Component {
 
           <div>
             <label>Username </label>
-            <input type="text" onChange={this.handleUserChange}></input>
+            <input type="text" onChange={this.handleUserChange} required></input>
           </div>
 
           <div>
             <label>User Email </label>
-            <input type="text" onChange={this.handleUserMailChange}></input>
+            <input type="text" onChange={this.handleUserMailChange} required></input>
           </div>
           <br></br>
           <div>

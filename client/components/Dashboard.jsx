@@ -1,5 +1,6 @@
 import React from "react";
 import EventList from "./EventList";
+require("../sass/dashboard.scss");
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -8,7 +9,6 @@ class Dashboard extends React.Component {
     this.state = {
       events: [],
     };
-    // this.deleteEvent = this.deleteEvent.bind(this);
   }
   componentWillMount() {
     console.log("REACHING FETCH");
@@ -36,8 +36,8 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="dash">
-        <h3>DASHBOARD</h3>
+      <div id="dashboard">
+        <h2 className="title">DASHBOARD</h2>
         <div>
           <EventList events={this.state.events} deleteEvent={this.deleteEvent.bind(this)} />
         </div>

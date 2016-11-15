@@ -10,15 +10,15 @@ app.use(bodyParser.json());
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   hot: true,
-  stats: {colors: true},
+  // stats: {colors: true},
   // where to get bundle.js -- defined in webpack.config.js
   publicPath: config.output.publicPath
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 app.use(express.static(path.join(__dirname, '../client/'), {'index': ['index.html']} ));
-app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, '../client/components')));
-app.use(express.static(path.join(__dirname, '../dist')));
+// app.use(express.static(path.join(__dirname, '../client')));
+// app.use(express.static(path.join(__dirname, '../client/components')));
+app.use(express.static(path.join(__dirname, '../static/dist')));
 
 require('./apiRoutes.js')(app);
 

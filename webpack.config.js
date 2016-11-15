@@ -6,14 +6,13 @@ module.exports = {
   context: __dirname + "/client",
   entry: [
     "webpack-hot-middleware",
-    "webpack/hot/dev-server",
+    "webpack/hot/only-dev-server",
     "./main.js",
   ],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./dist"),
-    // publicPath: "/dist/"
-    // publicPath: "http://localhost:8080/dist/"
+    publicPath: "/static/",
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -38,6 +37,10 @@ module.exports = {
           cacheDirectory: true,
           presets: ['react-hmre', 'react', 'es2015'],
         }
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
       }
     ]
   },

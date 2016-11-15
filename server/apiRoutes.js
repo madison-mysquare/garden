@@ -2,7 +2,9 @@ var path = require('path');
 var Event = require('./controllers/eventController');
 
 module.exports = function apiRoutes(app) {
-
+  app.get('/', function (req, res) {
+    res.sendFile('index');
+  });
 
   app.get('/api/get/events', function (req, res) {
     Event.fetchAllEvents(function(event) {

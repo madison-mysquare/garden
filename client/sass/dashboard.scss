@@ -1,0 +1,14 @@
+#dashboard {
+  h2 {
+    color: blue;
+    text-align: center;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    // height: 500px;
+    // width: 1000px;
+    margin: auto;
+  }
+}
