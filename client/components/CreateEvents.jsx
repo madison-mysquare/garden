@@ -5,15 +5,17 @@ class CreateEvents extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: '',
       date: '',
       time: '',
-      locaton: '',
+      location: '',
       org_name: '',
       org_website: '',
       org_email: '',
       username: '',
       user_email: ''
     };
+    this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
@@ -26,15 +28,16 @@ class CreateEvents extends React.Component {
   }
 
   handleSubmit(e) {
+    browserHistory.push(`/`);
     e.preventDefault();
-    this.props.createEvent(this.state, () => {
-      this.props.fetchAllEvents()
-      .then(() => {
-        browserHistory.push(`/dashboard`);
-      });
-    });
+    this.props.createEvent(this.state);
   }
 
+  handleTitleChange(e) {
+    this.setState({
+      title: e.target.value,
+    });
+  }
   handleDateChange(e) {
     this.setState({
       date: e.target.value,
@@ -82,18 +85,22 @@ class CreateEvents extends React.Component {
         <h3>Create Events Here</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
+            <label>Title </label>
+            <input type="text" onChange={this.handleTitleChange} required></input>
+          </div>
+          <div>
             <label>Date </label>
-            <input type="text" onChange={this.handleDateChange}></input>
+            <input type="text" onChange={this.handleDateChange} required></input>
           </div>
 
           <div>
             <label>Time </label>
-            <input type="text" onChange={this.handleTimeChange}></input>
+            <input type="text" onChange={this.handleTimeChange} required></input>
           </div>
 
           <div>
             <label>Location </label>
-            <input type="text" onChange={this.handleLocationChange}></input>
+            <input type="text" onChange={this.handleLocationChange} required></input>
           </div>
 
           <div>
@@ -113,12 +120,12 @@ class CreateEvents extends React.Component {
 
           <div>
             <label>Username </label>
-            <input type="text" onChange={this.handleUserChange}></input>
+            <input type="text" onChange={this.handleUserChange} required></input>
           </div>
 
           <div>
             <label>User Email </label>
-            <input type="text" onChange={this.handleUserMailChange}></input>
+            <input type="text" onChange={this.handleUserMailChange} required></input>
           </div>
           <br></br>
           <div>

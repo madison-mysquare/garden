@@ -2,9 +2,8 @@ var path = require('path');
 var Event = require('./controllers/eventController');
 
 module.exports = function apiRoutes(app) {
-
-  app.get('/*', function (req, res) {
-    res.sendFile(__dirname, '../client/components/index.html');
+  app.get('/', function (req, res) {
+    res.sendFile('index');
   });
 
   app.get('/api/get/events', function (req, res) {
@@ -16,9 +15,9 @@ module.exports = function apiRoutes(app) {
   app.post('/api/create/event', function(req, res) {
     Event.createEvent(req.body.data, function(event) {
       if (event) {
-        res.redirect('/dashboard');
+        res.redirect('/');
       } else {
-        res.send(401);
+        res.sendStatus(401);
       }
     });
   });
@@ -34,9 +33,5 @@ module.exports = function apiRoutes(app) {
       }
     });
   });
-
-  // app.get('/login', function (req, res) {
-  //   res.status(201);
-  // });
 
 };
