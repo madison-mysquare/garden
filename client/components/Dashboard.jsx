@@ -36,8 +36,8 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div id="dashboard">
-        <h2 className="title">DASHBOARD</h2>
+      <div className="dashboard">
+        <h2 className="dashboard-title">Dashboard</h2>
         <div>
           <EventList events={this.state.events} deleteEvent={this.deleteEvent.bind(this)} />
         </div>

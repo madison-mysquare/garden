@@ -1,14 +1,31 @@
-#dashboard {
-  h2 {
-    color: blue;
+.dashboard {
+  .dashboard-title {
+    color: #1c98c9;
+    font-family: Superclarendon, Open Sans;
+    text-align: center;
+    margin: 5% auto;
+  }
+}
+.eventList {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-flow: column;
+  justify-content: center;
+  .event-list-entry-container {
+    // width: 80%;
+    margin: 0% 10% 10% 10%;
+    line-height: 25px;
+    border: solid .5px gray;
+  .event-title {
+    color: #154b66;
     text-align: center;
   }
-  div {
-    display: flex;
-    align-items: center;
-    flex-flow: column;
-    // height: 500px;
-    // width: 1000px;
-    margin: auto;
+    .event-list-entry {
+      display: flex;
+      padding: 0 2em 2em 2em;
+      align-content: center;
+      flex-flow: column;
+    }
   }
 }
