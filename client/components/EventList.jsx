@@ -10,7 +10,7 @@ const EventList = ({ events, deleteEvent }) => {
     />
   );
     return (
-      <div>
+      <div className="eventList">
         {eventList}
       </div>
     );
