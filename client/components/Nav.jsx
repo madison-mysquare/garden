@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+require("../sass/nav.scss");
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -8,18 +9,23 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <nav>
-        <h1>Flux/Redux 101</h1>
-        <div>
-          <Link to={`/dashboard`}>Dashboard</Link>
-        </div>
-        <div>
-          <Link to={`/login`}>Login</Link>
-        </div>
-        <div>
-          <Link to={`/create`}>Create Events</Link>
-        </div>
-      </nav>
+      <div>
+        <nav className="nav-container">
+          <div>LOGO HERE</div>
+          <div>
+            <Link to={`/`}>Dashboard</Link>
+          </div>
+          <div>
+            <Link to={`/login`}>Login</Link>
+          </div>
+          <div>
+            <Link to={`/create`}>Create Events</Link>
+          </div>
+          <div>
+            <Link to={`/settings`}>Settings</Link>
+          </div>
+        </nav>
+      </div>
     );
   }
 }

@@ -7,18 +7,24 @@ const events = (state=[], action) => {
       );
       break;
     }
-    // case "CREATE_EVENT": {
-    //   state = Object.assign({}, state,
-    //     action.payload
-    //   );
-    //   break;
-    // }
+    case "CREATE_EVENT": {
+      state = Object.assign({}, state,
+        action.payload
+      );
+      break;
+    }
+    case "UPDATE_EVENT": {
+      state = Object.assign({}, state,
+        action.payload
+      );
+      break;
+    }
     case "DELETE_EVENT": {
       // delete event from store/state if action.payload === true.
-      const eventTitle = action.data;
+      const eventId = action.data;
       for (let i in state) {
-        if (state[i].title !== eventTitle) {
-          Object.assign({}, state, state[i].title);
+        if (state[i].id !== eventId) {
+          Object.assign({}, state, state[i].id);
         }
       }
       break;
@@ -26,6 +32,12 @@ const events = (state=[], action) => {
     case "FETCH_EVENTS_REJECTED": {
       state = Object.assign({}, state, {
         message: "Sorry, no events"
+      });
+      break;
+    }
+    case "UPDATE_EVENT_REJECTED": {
+      state = Object.assign({}, state, {
+        message: "Sorry, update unsuccessful"
       });
       break;
     }

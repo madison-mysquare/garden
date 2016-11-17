@@ -23,6 +23,21 @@ const fetchAllEvents = (callback) => {
   });
 };
 
+const updateEvent = (event) => {
+  Event.findById(event, (err, updatedEvent) => {
+    if (err) {
+      res.sendStatus(500).send(err);
+    } else {
+      updatedEvent.save((err, newEvent) => {
+        if (err) {
+          res.sendStatus(500).send(err);
+        }
+        res.send(newEvent);
+      });
+    }
+  });
+};
+
 const deleteEvent = (event, callback) => {
   Event.remove(event, (err, deletedEvent) => {
     if (err) {
@@ -34,9 +49,9 @@ const deleteEvent = (event, callback) => {
   });
 };
 
-
 module.exports = {
   createEvent: createEvent,
   fetchAllEvents: fetchAllEvents,
+  updateEvent: updateEvent,
   deleteEvent: deleteEvent
 };
