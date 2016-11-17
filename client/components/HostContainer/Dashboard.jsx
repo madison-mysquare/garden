@@ -1,6 +1,6 @@
 import React from "react";
 import EventList from "./EventList";
-require("../sass/dashboard.scss");
+require("../../sass/dashboard.scss");
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -39,7 +39,15 @@ class Dashboard extends React.Component {
       _id: id
     };
     this.props.updateEvent(updatedEvent, (updated) => {
-      
+      if (updated) {
+        this.props.fetchAllEvents((events) => {
+          this.setState({
+            events: events.data
+          });
+        });
+      } else {
+        console.log("Could not update");
+      }
     });
   }
 

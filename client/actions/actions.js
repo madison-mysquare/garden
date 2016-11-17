@@ -1,96 +1,98 @@
 import axios from "axios";
 import store from "../store";
 
-export function changeName(name) {
-  return {
-    type: "CHANGE_NAME",
-    payload: {
-      name: name
-    }
-  };
-}
+const utils = {
+  changeName(name) {
+    return {
+      type: "CHANGE_NAME",
+      payload: {
+        name: name
+      }
+    };
+  },
 
-export function changePassword(password) {
-  return {
-    type: "CHANGE_PASSWORD",
-    payload: {
-      password: password
-    }
-  };
-}
+  changePassword(password) {
+    return {
+      type: "CHANGE_PASSWORD",
+      payload: {
+        password: password
+      }
+    };
+  },
 
-// we are able to create functional actions like this one, due to Thunk middleware.
-export function fetchAllEvents(callback) {
-  return dispatch => {
-    axios.get('api/get/events')
-    .then((response) => {
-      store.dispatch({
-        type: "FETCH_EVENTS",
-        payload: response.data
+  createEvent(data) {
+    return dispatch => {
+      axios.post('api/create/event', { data: data })
+      .then((response) => {
+        store.dispatch({
+          type: "CREATE_EVENT",
+          payload: { data: data }
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: "CREATE_EVENT_REJECTED",
+          payload: err
+        });
       });
-      callback(response);
-    })
-    .catch((err) => {
-      dispatch({
-        type: "FETCH_EVENTS_REJECTED",
-        payload: err
-      });
-    });
-  };
-}
+    };
+  },
 
+  // we are able to create functional actions like this one, due to Thunk middleware.
+  fetchAllEvents(callback) {
+    return dispatch => {
+      axios.get('api/get/events')
+      .then((response) => {
+        store.dispatch({
+          type: "FETCH_EVENTS",
+          payload: response.data
+        });
+        callback(response);
+      })
+      .catch((err) => {
+        dispatch({
+          type: "FETCH_EVENTS_REJECTED",
+          payload: err
+        });
+      });
+    };
+  },
 
-export function createEvent(data) {
-  return dispatch => {
-    axios.post('api/create/event', { data: data })
-    .then((response) => {
-      store.dispatch({
-        type: "CREATE_EVENT",
-        payload: { data: data }
+  updateEvent(event, callback) {
+    return dispatch => {
+      axios.post('api/update/event', { data: event })
+      .then((response) => {
+        store.dispatch({
+          type: "UPDATE_EVENT",
+          payload: { data: event }
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: "UPDATE_EVENT_REJECTED",
+          payload: err
+        });
       });
-    })
-    .catch((err) => {
-      dispatch({
-        type: "CREATE_EVENT_REJECTED",
-        payload: err
-      });
-    });
-  };
-}
+    };
+  },
 
-export function updateEvent(event, callback) {
-  return dispatch => {
-    axios.post('api/update/event', { data: event })
-    .then((response) => {
-      store.dispatch({
-        type: "UPDATE_EVENT",
-        payload: { data: event }
+  deleteOneEvent(event, callback) {
+    return dispatch => {
+      axios.post('api/delete/event', { data: event })
+      .then((response) => {
+        store.dispatch({
+          type: "DELETE_EVENT",
+          payload: { data: event.id }
+        });
+        callback(response.data);
+      })
+      .catch((err) => {
+        dispatch({
+          type: "DELETE_EVENT_REJECTED",
+          payload: err
+        });
       });
-    })
-    .catch((err) => {
-      dispatch({
-        type: "UPDATE_EVENT_REJECTED",
-        payload: err
-      });
-    });
-  };
-}
-
-export function deleteOneEvent(event, callback) {
-  return dispatch => {
-    axios.post('api/delete/event', { data: event })
-    .then((response) => {
-      store.dispatch({
-        type: "DELETE_EVENT",
-        payload: { data: event.id }
-      });
-      callback(response.data);
-    })
-    .catch((err) => {
-      dispatch({
-        type: "DELETE_EVENT_REJECTED",
-        payload: err
-      });
-    });
-  };
-}
+    };
+  },
+};
+export default utils;

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import App from "./components/AppContainer/App";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import EventList from "./components/EventList";
-import CreateEvents from "./components/CreateEvents";
-import EventListEntry from "./components/EventListEntry";
+import Dashboard from "./components/AppContainer/Dashboard";
+import EventList from "./components/AppContainer/EventList";
+import CreateEvents from "./components/AppContainer/CreateEvents";
+import EventListEntry from "./components/AppContainer/EventListEntry";
 import { Provider } from "react-redux";
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import store from "./store";
