@@ -32,7 +32,6 @@ class CreateEvents extends React.Component {
     e.preventDefault();
     this.props.createEvent(this.state);
   }
-
   handleTitleChange(e) {
     this.setState({
       title: e.target.value,
