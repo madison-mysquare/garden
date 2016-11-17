@@ -9,18 +9,20 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <nav className="nav-container">
-        <div>LOGO HERE</div>
-        <div>
-          <Link to={`/`}>Dashboard</Link>
-        </div>
-        <div>
-          <Link to={`/login`}>Login</Link>
-        </div>
-        <div>
-          <Link to={`/create`}>Create Events</Link>
-        </div>
-      </nav>
+      // <div>
+        <nav className="nav-container">
+          <div>LOGO HERE</div>
+          <div>
+            <Link to={`/`}>Dashboard</Link>
+          </div>
+          <div>
+            <Link to={`/login`}>Login</Link>
+          </div>
+          <div>
+            <Link to={`/create`}>Create Events</Link>
+          </div>
+        </nav>
+      // </div>
     );
   }
 }

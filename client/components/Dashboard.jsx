@@ -18,9 +18,10 @@ class Dashboard extends React.Component {
       });
     });
   }
-  deleteEvent(title) {
-    let deletedEvent = { title: title };
-    // console.log("DELETED EVENT ", deletedEvent);
+  deleteEvent(id) {
+    let deletedEvent = {
+      _id: id
+    };
     this.props.deleteOneEvent(deletedEvent, (deleted) => {
       if (deleted) {
         this.props.fetchAllEvents((events) => {
@@ -33,11 +34,19 @@ class Dashboard extends React.Component {
       }
     });
   }
+  updateEvent(id) {
+    let updatedEvent = {
+      _id: id
+    };
+    this.props.updateEvent(updatedEvent, (updated) => {
+      
+    });
+  }
 
   render() {
     return (
       <div className="dashboard">
-        <h2 className="dashboard-title">Dashboard</h2>
+        <h2 className="dashboard-title">Madison Square My Garden</h2>
         <div>
           <EventList events={this.state.events} deleteEvent={this.deleteEvent.bind(this)} />
         </div>

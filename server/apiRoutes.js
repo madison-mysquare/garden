@@ -22,14 +22,18 @@ module.exports = function apiRoutes(app) {
     });
   });
 
+  app.post('api/update/event', function(req, res) {
+    Event.updateEvent(req.body.data);
+  });
+
   app.post('/api/delete/event', function(req, res) {
     let deletedEvent = req.body.data;
-    Event.deleteEvent(deletedEvent, function(deleted) {
-      if (deleted) {
-        res.send(deleted);
+    Event.deleteEvent(deletedEvent, function(response) {
+      if (response) {
+        res.send(response);
       } else {
         console.error(err);
-        res.send(401);
+        res.sendStatus(401);
       }
     });
   });

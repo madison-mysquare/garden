@@ -40,26 +40,6 @@ export function fetchAllEvents(callback) {
 }
 
 
-export function deleteOneEvent(event, callback) {
-  return dispatch => {
-    axios.post('api/delete/event', { data: event })
-    .then((response) => {
-      store.dispatch({
-        type: "DELETE_EVENT",
-        payload: { data: event.title }
-      });
-      callback(response.data);
-    })
-    .catch((err) => {
-      dispatch({
-        type: "DELETE_EVENT_REJECTED",
-        payload: err
-      });
-    });
-  };
-}
-
-
 export function createEvent(data) {
   return dispatch => {
     axios.post('api/create/event', { data: data })
@@ -72,6 +52,43 @@ export function createEvent(data) {
     .catch((err) => {
       dispatch({
         type: "CREATE_EVENT_REJECTED",
+        payload: err
+      });
+    });
+  };
+}
+
+export function updateEvent(event, callback) {
+  return dispatch => {
+    axios.post('api/update/event', { data: event })
+    .then((response) => {
+      store.dispatch({
+        type: "UPDATE_EVENT",
+        payload: { data: event }
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: "UPDATE_EVENT_REJECTED",
+        payload: err
+      });
+    });
+  };
+}
+
+export function deleteOneEvent(event, callback) {
+  return dispatch => {
+    axios.post('api/delete/event', { data: event })
+    .then((response) => {
+      store.dispatch({
+        type: "DELETE_EVENT",
+        payload: { data: event.id }
+      });
+      callback(response.data);
+    })
+    .catch((err) => {
+      dispatch({
+        type: "DELETE_EVENT_REJECTED",
         payload: err
       });
     });
