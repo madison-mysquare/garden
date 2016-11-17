@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
     };
   }
   componentWillMount() {
-    console.log("REACHING FETCH");
+    console.log("REACHING FETCH", this.props);
     this.props.fetchAllEvents((events) => {
       this.setState({
         events: events.data

@@ -9,7 +9,7 @@ import {
 import {
   bindActionCreators
 } from "redux";
-import utils from "../../actions/actions";
+import appActions from "../../actions/appActions";
 import Dashboard from "./Dashboard";
 import Navigation from "../Nav";
 
@@ -23,7 +23,7 @@ function mapStateToProps(state) {
 }
 // inject all actions as actions.
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(utils, dispatch);
+  return bindActionCreators(appActions, dispatch);
 }
 
 class App extends React.Component {

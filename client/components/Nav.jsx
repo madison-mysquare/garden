@@ -9,7 +9,7 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      // <div>
+      <div>
         <nav className="nav-container">
           <div>LOGO HERE</div>
           <div>
@@ -21,8 +21,11 @@ class Navigation extends React.Component {
           <div>
             <Link to={`/create`}>Create Events</Link>
           </div>
+          <div>
+            <Link to={`/settings`}>Settings</Link>
+          </div>
         </nav>
-      // </div>
+      </div>
     );
   }
 }
