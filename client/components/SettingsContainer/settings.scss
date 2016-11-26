@@ -1,0 +1,28 @@
+.event-title {
+  margin-top: 3em;
+  text-align: center;
+}
+.event-table {
+  width: 90%;
+  text-align: center;
+  .event-row {
+    // display: flex;
+    // align-items: flex-start;
+    // flex-flow: column;
+  }
+  #event-headers {
+    width: 90%;
+    margin: 1em 5% 1em 5%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+  }
+}
+#event-table-data {
+  margin: 1em 5% 1em 5%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}

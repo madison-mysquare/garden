@@ -3,16 +3,16 @@ const path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
-  context: __dirname + "/client",
+  // context: __dirname + "/client",
   entry: [
     "webpack-hot-middleware",
     "webpack/hot/only-dev-server",
-    "./main.js",
+    path.join(__dirname, "client/main.js"),
   ],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./dist"),
-    publicPath: "/static/",
+    // publicPath: "/static/",
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
