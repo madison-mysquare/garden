@@ -14,3 +14,13 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def dictToClass(self, event):
+        self.pub_date = event['pub_date']
+        self.event_date = event['event_date']
+        self.title = event['title']
+        self.location = event['location']
+        self.org_name = event['org_name']
+        self.org_website = event['org_website']
+        self.username = event['username']
+        self.user_email = event['user_email']
